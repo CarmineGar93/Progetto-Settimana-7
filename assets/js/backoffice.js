@@ -71,17 +71,17 @@ const modal = function () {
                 if (index === 0) {
                     carousel.innerHTML += `
                 <div class="carousel-item active">
-                    <img src="${element.imageUrl}" class="d-block w-100" alt="...">
+                    <img src="${element.imageUrl}" class="d-block w-100" height="450">
                         <div class="carousel-caption d-none d-sm-block">
-                            <h5 class="text-dark">${element.name}</h5>
+                            
                         </div>
                     </div>`;
                 } else {
                     carousel.innerHTML += `
                 <div class="carousel-item">
-                    <img src="${element.imageUrl}" class="d-block w-100" alt="...">
+                    <img src="${element.imageUrl}" class="d-block w-100" height="450">
                         <div class="carousel-caption d-none d-sm-block">
-                            <h5 class="text-dark">${element.name}</h5>
+                            
                         </div>
                     </div>`;
                 }
