@@ -43,7 +43,7 @@ productForm.addEventListener("submit", function (e) {
                 alert("PRODUCT SAVED");
             } else {
                 alert("OPS...SOMETHING WENT WRONG TRY AGAIN");
-                throw new Error("Errore nel salvataggio del concerto");
+                throw new Error("Something went wrong");
             }
         })
         .catch((err) => {
@@ -62,7 +62,7 @@ const modal = function () {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error("Qualcosa è andato storto");
+                throw new Error("Something went wrong");
             }
         })
         .then((data) => {
