@@ -111,7 +111,8 @@ const modal = function () {
                 let id = dataSelected._id;
                 dataSelected = ''
                 btnModify.addEventListener("click", function (e) {
-                    e.preventDefault();                    
+                    e.preventDefault();
+                                       
                     if(id) {
                         const newProduct = new myProduct(
                             nameInput1.value,
@@ -153,36 +154,39 @@ const modal = function () {
                     
                 });
                 btnDelete.addEventListener("click", function (e) {
-                    e.preventDefault();                    
-                    if(id) {
-                        fetch(URL + id, {
-                            method: "DELETE",
-                            headers: {
-                                Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNTcwOGYyNjBjYzAwMTVjYzBkZDYiLCJpYXQiOjE3MjE5ODA2ODAsImV4cCI6MTcyMzE5MDI4MH0.BM-Bffn7x4mrYJT06TzOTGpAjF0ItIO21j7f9WF574Q",
-                            },
-                        })
-                        .then((response) => {
-                            if (response.ok) {
-                                alert("PRODUCT DELETED!");
-                                response.json()                                   
-                                
-                            } else {
-                                alert("ERROR!");
-                                throw new Error("Error in deleting the product");
-                            }
-                        })
-                        .then((data) => {
-                            const modifyForm = document.getElementById('modifyForm')
-                            modifyForm.reset()
-                            id = ''
-                            carousel.innerHTML = ' '
-                            modal()
-                        })
-                        .catch((err) => {
-                            console.log("ERROR", err);
-                        });
-                    } 
+                    e.preventDefault();
+                    if(window.confirm('Sei sicuro?')) {
+                        if(id) {
+                            fetch(URL + id, {
+                                method: "DELETE",
+                                headers: {
+                                    Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNTcwOGYyNjBjYzAwMTVjYzBkZDYiLCJpYXQiOjE3MjE5ODA2ODAsImV4cCI6MTcyMzE5MDI4MH0.BM-Bffn7x4mrYJT06TzOTGpAjF0ItIO21j7f9WF574Q",
+                                },
+                            })
+                            .then((response) => {
+                                if (response.ok) {
+                                    alert("PRODUCT DELETED!");
+                                    response.json()                                   
+                                    
+                                } else {
+                                    alert("ERROR!");
+                                    throw new Error("Error in deleting the product");
+                                }
+                            })
+                            .then((data) => {
+                                const modifyForm = document.getElementById('modifyForm')
+                                modifyForm.reset()
+                                id = ''
+                                carousel.innerHTML = ' '
+                                modal()
+                            })
+                            .catch((err) => {
+                                console.log("ERROR", err);
+                            });
+                        } 
+                    }                     
+                    
                     
                 });
             });
