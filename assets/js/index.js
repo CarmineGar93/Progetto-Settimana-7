@@ -73,7 +73,7 @@ const retrieveArticles = function () {
             let description = ''
             if (element.description.length > 50) {
                 description = element.description.slice(0, element.description.indexOf(" ", 50))
-                description += ' ... '
+                description += ' ... See more'
             } else {
                 description = element.description
             }
