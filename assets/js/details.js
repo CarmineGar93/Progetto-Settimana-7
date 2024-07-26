@@ -44,7 +44,7 @@ const createCart = function(array) {
         return acc + element.price
     }, 0)
     const totalShow = document.createElement('h5')
-    totalShow.innerText = `Il totale nel carrello è: ${total.toFixed(2)} $`
+    totalShow.innerText = `Total cart is: ${total.toFixed(2)} $`
     cart.appendChild(totalShow)
 
     
@@ -80,7 +80,7 @@ const searchProduct = function () {
                         <h4 class="card-title">${data.name}</h4>
                         <h5 class="card-title">${data.brand}</h5>
                         <p class="card-text">${data.description}</p>
-                        <button type="button" class="btn btn-primary w-25" id="btnBuy" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">${data.price}$ BUY </button>
+                        <button type="button" class="btn btn-primary w-25" id="btnBuy" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">${data.price}$ ADD TO CART</button>
                     </div>
                 </div>                
             </div>`;
