@@ -2,6 +2,7 @@ const articlesRow = document.getElementById('articlesRow')
 const URL = "https://striveschool-api.herokuapp.com/api/product/"
 let carrello = JSON.parse(localStorage.getItem('cart'))
 let cart = document.getElementById('cart')
+const spinner = document.getElementById('spinner')
 
 
 const createCart = function(array) {
@@ -42,7 +43,7 @@ const createCart = function(array) {
         return acc + element.price
     }, 0)
     const totalShow = document.createElement('h5')
-    totalShow.innerText = `Total cart is: ${total.toFixed(2)} $`
+    totalShow.innerText = `Il totale nel carrello è: ${total.toFixed(2)} $`
     cart.appendChild(totalShow)
 
     
@@ -69,13 +70,16 @@ const retrieveArticles = function () {
     })
     .then(data => {
         console.log(data)
+        spinner.classList.add('d-none')
         data.forEach((element) => {
             let description = ''
+            let more = ''
             if (element.description.length > 50) {
                 description = element.description.slice(0, element.description.indexOf(" ", 50))
-                description += ' ... See more'
+                more = ' ... See more'
             } else {
                 description = element.description
+                more = ''
             }
             const newProductCol = `
             <div class="col">
@@ -84,7 +88,7 @@ const retrieveArticles = function () {
                     <div class="card-body text-center">
                         <h5 class="card-title">${element.name}</h5>
                         <h6 class="card-title">${element.brand}</h6>
-                        <p class="card-text">${description}</p>
+                        <p class="card-text">${description}<span class='fw-bold'>${more}</span></p>
                         <a href="details.html?productId=${element._id}" class="btn btn-primary w-50">DETAILS</a>
                     </div>
                 </div>
