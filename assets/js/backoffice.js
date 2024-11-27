@@ -42,7 +42,7 @@ productForm.addEventListener("submit", function (e) {
         headers: {
             "Content-Type": "application/json",
             Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNTcwOGYyNjBjYzAwMTVjYzBkZDYiLCJpYXQiOjE3MjE5ODA2ODAsImV4cCI6MTcyMzE5MDI4MH0.BM-Bffn7x4mrYJT06TzOTGpAjF0ItIO21j7f9WF574Q",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ3NGM4YTFjNmFlZTAwMTUxNTMyYTQiLCJpYXQiOjE3MzI3MjU4OTgsImV4cCI6MTczMzkzNTQ5OH0.jrHlu_yBQpJHh5yqlhH3XoqKzg-BqT5rzg2XVehrtt8",
         },
     })
         .then((response) => {
@@ -62,7 +62,7 @@ const modal = function () {
     fetch(URL, {
         headers: {
             Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNTcwOGYyNjBjYzAwMTVjYzBkZDYiLCJpYXQiOjE3MjE5ODA2ODAsImV4cCI6MTcyMzE5MDI4MH0.BM-Bffn7x4mrYJT06TzOTGpAjF0ItIO21j7f9WF574Q",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ3NGM4YTFjNmFlZTAwMTUxNTMyYTQiLCJpYXQiOjE3MzI3MjU4OTgsImV4cCI6MTczMzkzNTQ5OH0.jrHlu_yBQpJHh5yqlhH3XoqKzg-BqT5rzg2XVehrtt8",
         },
     })
         .then((response) => {
@@ -79,7 +79,7 @@ const modal = function () {
                 let active = document.querySelector("div.active");
                 let imgSelected = active.firstElementChild;
                 let src = imgSelected.getAttribute("src");
-                
+
                 for (let i = 0; i < data.length; i++) {
                     console.log(data[i])
                     if (data[i].imageUrl === src) {
@@ -94,7 +94,7 @@ const modal = function () {
                 imgUrlInput1.value = dataSelected.imageUrl;
                 id = dataSelected._id
             });
-              
+
             btnModify.addEventListener("click", function (e) {
                 e.preventDefault();
                 if (id) {
@@ -110,14 +110,14 @@ const modal = function () {
                         body: JSON.stringify(newProduct),
                         headers: {
                             Authorization:
-                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNTcwOGYyNjBjYzAwMTVjYzBkZDYiLCJpYXQiOjE3MjE5ODA2ODAsImV4cCI6MTcyMzE5MDI4MH0.BM-Bffn7x4mrYJT06TzOTGpAjF0ItIO21j7f9WF574Q",
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ3NGM4YTFjNmFlZTAwMTUxNTMyYTQiLCJpYXQiOjE3MzI3MjU4OTgsImV4cCI6MTczMzkzNTQ5OH0.jrHlu_yBQpJHh5yqlhH3XoqKzg-BqT5rzg2XVehrtt8",
                             "Content-Type": "application/json",
                         },
                     })
                         .then((response) => {
                             if (response.ok) {
                                 alert("PRODUCT MODIFIED!");
-                                 return response.json()
+                                return response.json()
 
                             } else {
                                 alert("ERROR!");
@@ -135,14 +135,14 @@ const modal = function () {
                 }
             });
             btnDelete.addEventListener("click", function (e) {
-                e.preventDefault();                
-                    if (id) {
-                        if (window.confirm('Sei sicuro?')) {
+                e.preventDefault();
+                if (id) {
+                    if (window.confirm('Sei sicuro?')) {
                         fetch(URL + id, {
                             method: "DELETE",
                             headers: {
                                 Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNTcwOGYyNjBjYzAwMTVjYzBkZDYiLCJpYXQiOjE3MjE5ODA2ODAsImV4cCI6MTcyMzE5MDI4MH0.BM-Bffn7x4mrYJT06TzOTGpAjF0ItIO21j7f9WF574Q",
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ3NGM4YTFjNmFlZTAwMTUxNTMyYTQiLCJpYXQiOjE3MzI3MjU4OTgsImV4cCI6MTczMzkzNTQ5OH0.jrHlu_yBQpJHh5yqlhH3XoqKzg-BqT5rzg2XVehrtt8",
                             },
                         })
                             .then((response) => {

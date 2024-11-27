@@ -6,7 +6,7 @@ let carrello = JSON.parse(localStorage.getItem('cart'))
 let cart = document.getElementById('cart')
 
 
-const createCart = function(array) {
+const createCart = function (array) {
     cart.innerHTML = ''
     for (let j = 0; j < array.length; j++) {
         const divImg = document.createElement('div')
@@ -25,7 +25,7 @@ const createCart = function(array) {
         const btnErase = document.createElement('button')
         btnErase.classList.add('btn', 'btn-danger')
         btnErase.innerText = 'X'
-        btnErase.addEventListener('click', function() {
+        btnErase.addEventListener('click', function () {
             array[j].count = 1
             array.splice(j, 1)
             cart.innerHTML = ''
@@ -39,16 +39,16 @@ const createCart = function(array) {
         cart.appendChild(divImg)
         cart.appendChild(divText)
         cart.appendChild(divButton)
-    }    
-    let total = array.reduce(function(acc, element) {
+    }
+    let total = array.reduce(function (acc, element) {
         return acc + element.price
     }, 0)
     const totalShow = document.createElement('h5')
     totalShow.innerText = `Total cart is: ${total.toFixed(2)} $`
     cart.appendChild(totalShow)
 
-    
-    
+
+
 }
 
 if (carrello) {
@@ -60,7 +60,7 @@ if (carrello) {
 const searchProduct = function () {
     fetch(URL + productId, {
         headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzNTcwOGYyNjBjYzAwMTVjYzBkZDYiLCJpYXQiOjE3MjE5ODA2ODAsImV4cCI6MTcyMzE5MDI4MH0.BM-Bffn7x4mrYJT06TzOTGpAjF0ItIO21j7f9WF574Q"
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ3NGM4YTFjNmFlZTAwMTUxNTMyYTQiLCJpYXQiOjE3MzI3MjU4OTgsImV4cCI6MTczMzkzNTQ5OH0.jrHlu_yBQpJHh5yqlhH3XoqKzg-BqT5rzg2XVehrtt8"
         }
     })
         .then((response) => {
@@ -85,13 +85,13 @@ const searchProduct = function () {
                 </div>                
             </div>`;
             const btnBuy = document.getElementById('btnBuy')
-            btnBuy.addEventListener('click', function() {
-                carrello.push(data)            
-                console.log(carrello)            
+            btnBuy.addEventListener('click', function () {
+                carrello.push(data)
+                console.log(carrello)
                 createCart(carrello)
                 localStorage.setItem('cart', JSON.stringify(carrello))
             })
-            
+
         })
 
         .catch((err) => {
